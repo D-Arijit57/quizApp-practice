@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App Template</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom font */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5; /* Light grey background */
+        }
+        /* Custom style for the option input/label alignment */
+        .option-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem 0;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            border-radius: 0.5rem;
+        }
+        .option-item:hover {
+            background-color: #f3f4f6;
+        }
+        .option-item input[type="radio"] {
+            /* Standard radio button styling */
+            appearance: none;
+            width: 1.25rem;
+            height: 1.25rem;
+            min-width: 1.25rem;
+            border: 2px solid #6b7280; /* Gray-500 border */
+            border-radius: 50%;
+            margin-right: 1rem;
+            outline: none;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .option-item input[type="radio"]:checked {
+            border: 5px solid #4f46e5; /* Indigo-600 border for checked state */
+        }
+        .option-item label {
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: #1f2937; /* Dark text */
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+
+    <!-- Quiz Container Card -->
+    <div id="quiz-card" class="bg-white rounded-xl shadow-2xl p-8 sm:p-10 w-full max-w-md md:max-w-lg lg:max-w-xl">
+
+        <!-- Question Section -->
+        <div class="mb-8">
+            <h2 id="question-text" class="text-2xl sm:text-3xl font-bold text-center text-gray-900 leading-snug">
+               this is where the text will go 
+            </h2>
+        </div>
+
+        <!-- Options Section -->
+        <div id="options-container" class="space-y-4 mb-10">
+
+            <!-- Option 1 -->
+            <div class="option-item pl-4">
+                <input type="radio" id="option1" name="answer" value="Java">
+                <label for="option1"></label>
+            </div>
+
+            <!-- Option 2 -->
+            <div class="option-item pl-4">
+                <input type="radio" id="option2" name="answer" value="C">
+                <label for="option2"></label>
+            </div>
+
+            <!-- Option 3 -->
+            <div class="option-item pl-4">
+                <input type="radio" id="option3" name="answer" value="Python">
+                <label for="option3"></label>
+            </div>
+
+            <!-- Option 4 -->
+            <div class="option-item pl-4">
+                <input type="radio" id="option4" name="answer" value="JavaScript">
+                <label for="option4"></label>
+            </div>
+
+        </div>
+
+        <!-- Submit Button -->
+        <button id="submit-button" class="w-full py-3 bg-indigo-600 text-white font-semibold text-lg rounded-lg shadow-md hover:bg-indigo-700 transition duration-150 ease-in-out" onclick = "submit()">
+            Submit
+        </button>
+
+        <!-- Placeholder for results or video controls (if needed, based on screenshot context) -->
+        <!-- I've omitted the video controls from the screenshot to focus on the quiz structure, but included the submit button. -->
+
+    </div>
+
+    <!-- Optional: Add an empty script block for you to fill in the logic later -->
+    <script src = "script.js">
+        // Start your logic here! You can use document.getElementById('submit-button')
+		// and document.querySelectorAll('input[name="answer"]') to hook up your quiz logic.
+
+    </script>
+
+</body>
+</html>
