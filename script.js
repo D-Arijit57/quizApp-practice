@@ -1,5 +1,6 @@
 //  use this quizData in your app.
-const quizData = [{
+const quizData = [
+    {
     "question": "Which language runs in a web browser?",
     "a": "Java",
     "b": "C",
@@ -35,23 +36,49 @@ const quizData = [{
 ]
 // we are going to create a render function 
 // that renders the next component (quiz UI) after every correct answer 
-function render(){
+
+let optionChosen = '' ;
+let quizIdx = 0;
+window.onload = () => render(quizIdx)
+function render(quizIdx){
+    if(quizIdx >= quizData.length){
+        document.querySelector("#question-text").innerText = "Quiz is Over!!!";
+        return ;
+    }
     const mainQ = document.querySelector("#question-text");
-    const op1 = document.querySelector("#option1");
-    const op2 = document.querySelector("#option2");
-    const op3 = document.querySelector("#option3");
+    const op1 = document.querySelector('label[for="option-1"]');
+    const op2 = document.querySelector('label[for="option-2"]');
+    const op3 = document.querySelector('label[for="option-3"]');
     // op3.textContent = quizData[0].c; // testing code 
     // console.log(op3); // testing code 
-    const op4 = document.querySelector("#option4");
-    // mainQ.innerText = quizData[idx].question;
+    const op4 = document.querySelector('label[for="option-4"]');
+    const selectedOption = document.querySelector('input[name="answer"]:checked');
+    if(selectedOption){
+        selectedOption.checked = false;
+    }
+    mainQ.innerText = quizData[quizIdx].question;
+    op1.innerText = quizData[quizIdx].a;
+    op2.innerText = quizData[quizIdx].b;
+    op3.innerText = quizData[quizIdx].c;
+    op4.innerText = quizData[quizIdx].d;
+    // mainQ.innerText = quizData[quizIdx].question;
     // console.log(mainQ); // testing code 
+    optionChosen = '';
 }
-let i = 0;
+function chosen_option(val){
+     optionChosen = val;
+}
 function submit(){
-    do{
-        const option = document.querySelector("#")
-        render(i);
-        i++;
-    }while(i < quizData.length)
+    if(optionChosen === ''){
+        alert("Please choose one of the options");
+        return;
+    }
+    const correct = quizData[quizIdx].correct ;
+    if(optionChosen === correct){
+        quizIdx++;
+        render(quizIdx);
+    }
+    else{
+        alert("Incorrect answer!!! Try again")
+    }
 }
-
